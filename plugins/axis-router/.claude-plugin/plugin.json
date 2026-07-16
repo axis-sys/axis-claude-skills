@@ -1,0 +1,8 @@
+{
+  "name": "axis-router",
+  "description": "Deterministic intent router for the Axis skills ecosystem — a UserPromptSubmit hook that keyword-matches the prompt (local, zero API calls) against router.mapping.json and injects the suggested skill route into the context.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/axis-sys/axis-claude-skills",
+  "repository": "https://github.com/axis-sys/axis-claude-skills",
+  "author": { "name": "axis-sys" }
+}

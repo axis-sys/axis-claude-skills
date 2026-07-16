@@ -1,0 +1,170 @@
+{
+  "intent_patterns": {
+    "implement-feature": {
+      "keywords": ["implementar", "implement", "feature", "funcionalidade", "backend", ".net", "dotnet", "c#", "csharp", "hexagonal", "vertical slice", "novo servico", "new service", "axis"],
+      "primary_skill": "axis-dotnet:axis-dotnet-architect",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-systems-architect", "priority": "high", "reason": "decide boundaries before coding" },
+        { "name": "axis-dotnet:axis-domain-modeling", "priority": "high", "reason": "aggregate core, ports and value objects" },
+        { "name": "axis-dotnet:axis-use-case-cqrs", "priority": "high", "reason": "vertical slice command/query/handler" }
+      ],
+      "domain": "dotnet"
+    },
+    "plan-architecture": {
+      "keywords": ["bounded context", "fronteira", "boundary", "subdominio", "subdomain", "arquitetura", "architecture", "canal entre bcs", "channel between", "monolito", "monolith", "microservico", "microservice", "context map"],
+      "primary_skill": "axis-dotnet:axis-systems-architect",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-dotnet-architect", "priority": "high", "reason": "hub that materializes the plan in code" }
+      ],
+      "domain": "dotnet"
+    },
+    "model-domain": {
+      "keywords": ["entidade", "entity", "aggregate", "agregado", "value object", "objeto de valor", "factory", "domain model", "modelo de dominio", "modelagem", "ddd", "invariante"],
+      "primary_skill": "axis-dotnet:axis-domain-modeling",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-types", "priority": "high", "reason": "typed value objects via [ValueObject]" },
+        { "name": "axis-dotnet:axis-use-case-cqrs", "priority": "high", "reason": "slices that drive the aggregate" }
+      ],
+      "domain": "dotnet"
+    },
+    "create-use-case": {
+      "keywords": ["use case", "caso de uso", "command", "query", "handler", "facade", "cqrs", "vertical slice", "response"],
+      "primary_skill": "axis-dotnet:axis-use-case-cqrs",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-validator", "priority": "high", "reason": "declarative input validation" },
+        { "name": "axis-dotnet:axis-mediator", "priority": "high", "reason": "ambient execution context and dispatch" },
+        { "name": "axis-dotnet:axis-result", "priority": "high", "reason": "AxisResult composition in handlers" },
+        { "name": "axis-dotnet:axis-dependency-injections", "priority": "medium", "reason": "register the slice in DI" }
+      ],
+      "domain": "dotnet"
+    },
+    "expose-endpoint": {
+      "keywords": ["controller", "endpoint", "rota", "route", "api", "http", "rest", "actionresult", "versionamento", "versioning"],
+      "primary_skill": "axis-dotnet:axis-webapi-controllers",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-result-httpresponse", "priority": "high", "reason": "render AxisResult to IActionResult" },
+        { "name": "axis-dotnet:axis-e2e-tests", "priority": "high", "reason": "E2E journey gate for endpoints" },
+        { "name": "axis-dotnet:axis-docs", "priority": "medium", "reason": "OpenAPI and endpoint docs" }
+      ],
+      "domain": "dotnet"
+    },
+    "use-result": {
+      "keywords": ["axisresult", "railway", "railway-oriented", "erro tipado", "typed error", "result pattern", "monada", "monad", "erros como valores", "errors as values"],
+      "primary_skill": "axis-dotnet:axis-result",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-result-httpresponse", "priority": "high", "reason": "HTTP rendering of results" }
+      ],
+      "domain": "dotnet"
+    },
+    "validate-input": {
+      "keywords": ["validacao", "validation", "validar", "validate", "validator", "fluentvalidation", "regra de entrada", "input rule"],
+      "primary_skill": "axis-dotnet:axis-validator",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-use-case-cqrs", "priority": "high", "reason": "validators live in the slice" }
+      ],
+      "domain": "dotnet"
+    },
+    "persist-data": {
+      "keywords": ["repositorio", "repository", "sql", "postgres", "mysql", "unit of work", "unitofwork", "persistencia", "persistence", "banco de dados", "database", "ado.net", "dialect"],
+      "primary_skill": "axis-dotnet:axis-repository",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-repository-postgres", "priority": "high", "reason": "concrete repository with dialect seam" },
+        { "name": "axis-dotnet:axis-migrations", "priority": "high", "reason": "schema/DDL evolution" }
+      ],
+      "domain": "dotnet"
+    },
+    "evolve-schema": {
+      "keywords": ["migration", "migracao", "ddl", "schema", "tabela", "table", "alter table", "coluna", "column", "indice", "index"],
+      "primary_skill": "axis-dotnet:axis-migrations",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-repository", "priority": "high", "reason": "repositories over the new schema" },
+        { "name": "axis-dotnet:axis-integration-tests", "priority": "high", "reason": "prove migrations against a real database" }
+      ],
+      "domain": "dotnet"
+    },
+    "setup-saga": {
+      "keywords": ["saga", "compensacao", "compensation", "rollback", "multi-bc", "processo distribuido", "distributed process", "orquestracao", "orchestration", "axissaga"],
+      "primary_skill": "axis-dotnet:axis-saga",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-bus", "priority": "high", "reason": "events between saga steps" },
+        { "name": "axis-dotnet:axis-use-case-cqrs", "priority": "high", "reason": "saga steps are use cases" }
+      ],
+      "domain": "dotnet"
+    },
+    "publish-events": {
+      "keywords": ["evento", "event", "bus", "iaxisbus", "outbox", "fan-out", "fanout", "publicar", "publish", "consumir", "consume", "mensageria", "messaging"],
+      "primary_skill": "axis-dotnet:axis-bus",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-saga", "priority": "high", "reason": "multi-step processes consume events" }
+      ],
+      "domain": "dotnet"
+    },
+    "cache-data": {
+      "keywords": ["cache", "cache-aside", "invalidar", "invalidate", "invalidation", "ttl", "iaxiscache", "two-tier", "dados quentes", "hot data"],
+      "primary_skill": "axis-dotnet:axis-cache",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-repository", "priority": "high", "reason": "cache-aside over the repository" }
+      ],
+      "domain": "dotnet"
+    },
+    "store-blobs": {
+      "keywords": ["storage", "blob", "arquivo", "file upload", "presigned", "upload", "download", "iaxisstorage", "bucket", "azure blob", "r2"],
+      "primary_skill": "axis-dotnet:axis-storage",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-webapi-controllers", "priority": "high", "reason": "upload/download endpoints" }
+      ],
+      "domain": "dotnet"
+    },
+    "send-email": {
+      "keywords": ["email", "e-mail", "smtp", "transacional", "transactional", "iaxisemailservice", "enviar email", "send email", "mailer"],
+      "primary_skill": "axis-dotnet:axis-email",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-use-case-cqrs", "priority": "high", "reason": "email goes out from a use case step" }
+      ],
+      "domain": "dotnet"
+    },
+    "observe": {
+      "keywords": ["log", "logging", "trace", "tracing", "telemetria", "telemetry", "metrica", "metric", "span", "observabilidade", "observability", "iaxislogger", "correlacao", "correlation"],
+      "primary_skill": "axis-dotnet:axis-logger",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-telemetry", "priority": "high", "reason": "spans and metrics beyond logs" }
+      ],
+      "domain": "dotnet"
+    },
+    "write-tests": {
+      "keywords": ["teste", "test", "unitario", "unit test", "integracao", "integration", "e2e", "xunit", "moq", "testcontainers", "cobertura", "coverage", "tdd", "webapplicationfactory"],
+      "primary_skill": "axis-dotnet:axis-tests",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-unit-tests", "priority": "high", "reason": "use case via facade, mock driven ports only" },
+        { "name": "axis-dotnet:axis-integration-tests", "priority": "high", "reason": "real database via Testcontainers" },
+        { "name": "axis-dotnet:axis-e2e-tests", "priority": "high", "reason": "full HTTP journey" }
+      ],
+      "domain": "dotnet"
+    },
+    "review-code": {
+      "keywords": ["revisar", "review", "revisao", "diff", "pre-push", "pre-commit", "code review", "auditar", "audit", "pull request"],
+      "primary_skill": "axis-dotnet:axis-review",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-dotnet-architect", "priority": "high", "reason": "architecture conformance" },
+        { "name": "axis-dotnet:axis-tests", "priority": "high", "reason": "test gates in review" }
+      ],
+      "domain": "dotnet"
+    },
+    "write-docs": {
+      "keywords": ["documentacao", "documentation", "readme", "runbook", "openapi", "swagger", "documentar", "document", "api reference", "onboarding"],
+      "primary_skill": "axis-dotnet:axis-docs",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-webapi-controllers", "priority": "high", "reason": "endpoints are a primary doc source" }
+      ],
+      "domain": "dotnet"
+    },
+    "author-rules": {
+      "keywords": ["regra", "rule", "invariante", "invariant", "rules/", "canonical", "canonica", "base de regras", "rule base", "yaml"],
+      "primary_skill": "axis-dotnet:axis-rules",
+      "related_skills": [
+        { "name": "axis-dotnet:axis-review", "priority": "high", "reason": "review enforces the rules" }
+      ],
+      "domain": "dotnet"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "description": "Axis intent routing: detects the prompt's intent via deterministic keyword matching (local, no API calls) and injects the suggested skill route into the context.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/router.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

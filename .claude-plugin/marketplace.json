@@ -1,0 +1,26 @@
+{
+  "name": "axis-claude-skills",
+  "description": "Central Claude Code marketplace for the Axis skills ecosystem: the deterministic intent router (axis-router) plus the domain skill plugins, starting with axis-dotnet.",
+  "owner": { "name": "axis-sys" },
+  "plugins": [
+    {
+      "name": "axis-router",
+      "source": "./plugins/axis-router",
+      "description": "Deterministic intent router (UserPromptSubmit hook) for the Axis skills ecosystem",
+      "category": "workflow",
+      "keywords": ["axis", "router", "routing", "hook", "skills"]
+    },
+    {
+      "name": "axis-dotnet",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/axis-sys/axis-framework-dotnet.git",
+        "path": "skills/plugins/axis-dotnet",
+        "ref": "main"
+      },
+      "description": "C#/.NET backend engineering the Axis way (Hexagonal + DDD + CQRS + Vertical Slices + AxisResult)",
+      "category": "engineering",
+      "keywords": ["axis", "csharp", "dotnet", "ddd", "hexagonal", "cqrs", "vertical-slices", "axisresult"]
+    }
+  ]
+}
